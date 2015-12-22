@@ -7,3 +7,10 @@ rescue LoadError
         "google-api-client not installed. Install with:\n\n" +
         "\tgem install google-api-client --prerelease\n\n"
 end
+
+require 'fileutils'
+
+File.exists?('client_secret.json') ||
+    raise("No client secrets; Please follow instructions on \n" +
+"https://developers.google.com/drive/v3/web/quickstart/ruby#step_1_turn_on_the_api_name"
+    )
