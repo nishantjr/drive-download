@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+
+begin
+    require 'google/apis/drive_v3'
+rescue LoadError
+    STDERR.puts \
+        "google-api-client not installed. Install with:\n\n" +
+        "\tgem install google-api-client --prerelease\n\n"
+end
