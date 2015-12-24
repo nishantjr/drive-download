@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "quick hack to test Google Drive REST API",
   "main": "quickstart.js",
-  "dependencies": {},
+  "dependencies": {
+    "google-auth-library": "^0.9.7",
+    "googleapis": "^2.1.7"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
