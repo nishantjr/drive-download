@@ -42,6 +42,9 @@ want to see what these are doing. It seems that, in short:
   
 [node_modules]: https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders
 
+There's also a `$HOME/.npmrc` which contains per-user variables (e.g.,
+`init.author.email` as below).
+
 There are [instructions for dealing with permissions
 problems](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
 in the npm docs, if you need to do a global install somewhere (perhaps
@@ -73,7 +76,7 @@ guide:
 For the moment, use whichever you like until we figure out what each
 means. (They do produce different results in the package.json files.)
 
-#### Installing Packages
+#### Installing/Updating Packages
 
 Packages can be installed 'globally', in the node/npm installation
 directory or 'locally', under a `node_modules` directory in the current
@@ -84,6 +87,8 @@ for `require()` dependencies for the current project.
 Basic syntax is:
 
     npm install [options] [<@scope>/]<name>@<version range>
+    npm update
+    npm uninstall [options] <package>
 
 In place of the _`name`_ you may also use an HTTP or a Git remote URL,
 `github:`, `gist:`, etc.
@@ -121,10 +126,14 @@ the format, and `npm help json` gives full details.
 [npmjs-using-json]: https://docs.npmjs.com/getting-started/using-a-package.json
 [npmjs-package.json]: https://docs.npmjs.com/files/package.json
 
-`npm init` in the root dir of a project will create a basic `package.json`.
-dir
+`npm init` in the root dir of a project will create a basic
+`package.json`. If you've `npm set` the following variables, they'll
+be used by npm init:
+* `init.author.email`
+* `init.author.name`
+* `init.license`
 
-Two required fields:
+In the `package.json` there are two required fields:
 
 * `name` is required, is passed to `require()`, becomes part of a URL,
   'js' or 'node' in name is redundant,
