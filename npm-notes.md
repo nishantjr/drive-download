@@ -75,10 +75,11 @@ means. (They do produce different results in the package.json files.)
 
 #### Installing Packages
 
-Packages can be installed 'globally' (in the node/npm installation
-directory) or 'locally' (under a `node_modules` directory in the current
-directory). See the section above for notes on directories used for
-this.
+Packages can be installed 'globally', in the node/npm installation
+directory or 'locally', under a `node_modules` directory in the current
+directory. (See the section above for notes on directories used for
+this.) In general, you'd use global for command line tools, and local
+for `require()` dependencies for the current project.
 
 Basic syntax is:
 
@@ -108,3 +109,39 @@ subcommand shows important and/or non-default config info; the `-l` option
 to that includes all defaults. `get` will print a specific config item.
 
 #### package.json
+
+This appears to be used both as a metdata specification for packages
+themselves and also as a specification for what packages are necessary
+for a project (which perhaps can be turned in to a package). In the
+latter case, it "documents what packages your project depends on...and
+makes your build reproducable."[npjs-using-json] There's an ["everything
+you need to know"][npmjs-package.json] document that describes a lot of
+the format, and `npm help json` gives full details.
+
+[npmjs-using-json]: https://docs.npmjs.com/getting-started/using-a-package.json
+[npmjs-package.json]: https://docs.npmjs.com/files/package.json
+
+`npm init` in the root dir of a project will create a basic `package.json`.
+dir
+
+Two required fields:
+
+* `name` is required, is passed to `require()`, becomes part of a URL,
+  'js' or 'node' in name is redundant,
+  may include a scope, e.g., `@myorg/mypackage`
+* `version` is required, follows standard npm semantic versioning
+
+Some of the optional fields:
+
+* `dependencies`, `devDependencies`, `prePublish`, `peerDependencies`, etc.
+* `main`: module ID relative to root of package folder
+* `bin`: map of command names to the `.js` file to be executed for each
+* `description` and `keywords` are used in `npm search`
+* `homepage`, `bugs`, `repository: URLs to project homepage, bug tracker,
+  repo
+* `config`: configuration information (in this installation's npm config
+  database) that persists across upgrades, e.g., `foo:port 8001`
+* `preferGlobal`
+
+If there's a `server.js` file in the root of the package, the `start`
+command will be defaulted to run that.
