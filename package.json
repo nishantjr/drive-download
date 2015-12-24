@@ -1,0 +1,17 @@
+{
+  "name": "drive-download",
+  "version": "0.0.1",
+  "description": "quick hack to test Google Drive REST API",
+  "main": "quickstart.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com.:nishantjr/drive-download.git"
+  },
+  "author": "nishantjr@gmail.com,cjs@cynic.net",
+  "license": "UNLICENSED"
+}
