@@ -51,6 +51,29 @@ in the npm docs, if you need to do a global install somewhere (perhaps
 for Windows?).
 
 
+Getting Started Real Quick
+--------------------------
+
+When you first start a project, set up to use `packages.json` to help
+npm track what packages you need:
+
+    echo /node_modules/ >> .gitignore
+    npm init -y                         # Drop -y for verbose version
+    git add .gitignore packages.json
+    git commit
+
+When you add a new package, track it in `packages.json`:
+
+    npm install --save googleapis
+    npm install --save google-auth-library
+    git commit packages.json
+
+When you check out and start working on an existing project, ensure you
+have all the right packages:
+
+    npm update
+
+
 Documentation Summary
 ---------------------
 
