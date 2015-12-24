@@ -102,24 +102,38 @@ means. (They do produce different results in the package.json files.)
 #### Installing/Updating Packages
 
 Packages can be installed 'globally', in the node/npm installation
-directory or 'locally', under a `node_modules` directory in the current
-directory. (See the section above for notes on directories used for
-this.) In general, you'd use global for command line tools, and local
-for `require()` dependencies for the current project.
+directory or 'locally', in the `node_modules` directory for the current
+project. When npm searches for the current project's `node_modules`
+directory, it looks first in the current directory, and then in every
+parent, up to the root (much like git). See the section above for further
+notes on the directories used for this.
+
+In general, you'd use global for command line tools, and local for
+`require()` dependencies for the current project. (If you do a local
+install, command line tools provided by a package will be available
+under `node_modules/.bin/`.
+
+**XXX** It's not clear what happens when you do an `npm update` when
+a dependent package is globally installed. Does it also install it
+locally? Or just use the global one? And if the latter, will it update
+the global one if necessary?
 
 Basic syntax is:
 
-    npm install [options] [<@scope>/]<name>@<version range>
-    npm update
-    npm uninstall [options] <package>
+    npm install [--save | -g] [options] [<@scope>/]<name>@<version range>
+    npm update                      # Update packages for this project.
+    npm outdated -g -depth=0        # What global packages are outdated?
+    npm uninstall [--save | -g] [options] <package>
 
 In place of the _`name`_ you may also use an HTTP or a Git remote URL,
 `github:`, `gist:`, etc.
 
-e.g.,
+Examples:
 
-    npm install lodash      # local install
-    npm install -g lodash   # global install
+    npm install --save semver   # local install, save info in package.json
+                                # run node_modules/.bin/semver
+    npm install -g purescript   # global install
+                                # run local/bin/semver
 
 Flags:
 * `--dry-run`: show what would be done without doing it.
