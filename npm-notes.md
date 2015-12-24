@@ -78,13 +78,14 @@ Documentation Summary
 ---------------------
 
 The [npm docs](https://docs.npmjs.com/) are a little awkward to follow,
-being 1-2 paragarphs per page (plus a video, which cjs did not watch)
-with no next/back buttons. Here's what you need to know from the first
-30 or so pages.
+being 1-2 paragarphs per page with no next/back buttons. (Each page also
+includes a video, which I couldn't be bothered to watch.) The following
+sections cover (or will cover) what you need to know from the first 30
+or so pages.
 
-For the commands below, `npm help _command_` will show the manpage.
+For the commands below, `npm help `_`command`_ will show the manpage.
 
-#### Updating npm
+### Updating npm
 
 npm is included with node.js, but you can use npm to update to the
 latest version:
@@ -99,7 +100,7 @@ guide:
 For the moment, use whichever you like until we figure out what each
 means. (They do produce different results in the package.json files.)
 
-#### Installing/Updating Packages
+### Installing/Updating Packages
 
 Packages can be installed 'globally', in the node/npm installation
 directory or 'locally', in the `node_modules` directory for the current
@@ -144,13 +145,13 @@ Flags:
 
 There's also a 'shrinkwrap' thing that needs further research.
 
-#### npm Configuration
+### npm Configuration
 
 `npm config` gets and sets configuration information. The `ls` or `list`
 subcommand shows important and/or non-default config info; the `-l` option
 to that includes all defaults. `get` will print a specific config item.
 
-#### package.json
+### package.json
 
 This appears to be used both as a metdata specification for packages
 themselves and also as a specification for what packages are necessary
@@ -191,3 +192,7 @@ Some of the optional fields:
 
 If there's a `server.js` file in the root of the package, the `start`
 command will be defaulted to run that.
+
+### Creating Modules/Packages
+
+Start with section 13 at https://docs.npmjs.com/ to fill in this part.
