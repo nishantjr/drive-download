@@ -56,6 +56,10 @@ being 1-2 paragarphs per page (plus a video, which cjs did not watch)
 with no next/back buttons. Here's what you need to know from the first
 30 or so pages.
 
+For the commands below, `npm help _command_` will show the manpage.
+
+#### Updating npm
+
 npm is included with node.js, but you can use npm to update to the
 latest version:
 
@@ -69,13 +73,38 @@ guide:
 For the moment, use whichever you like until we figure out what each
 means. (They do produce different results in the package.json files.)
 
+#### Installing Packages
+
+Packages can be installed 'globally' (in the node/npm installation
+directory) or 'locally' (under a `node_modules` directory in the current
+directory). See the section above for notes on directories used for
+this.
+
+Basic syntax is:
+
+    npm install [options] [<@scope>/]<name>@<version range>
+
+In place of the _`name`_ you may also use an HTTP or a Git remote URL,
+`github:`, `gist:`, etc.
+
+e.g.,
+
+    npm install lodash      # local install
+    npm install -g lodash   # global install
+
+Flags:
+* `--dry-run`: show what would be done without doing it.
+* `--save`: package will appear in **dependencies**
+* `--save-dev`: package will appear in **dev-dependencies**
+* `--save-exact`: saves exact rather than minimum version
+* `--production`: do not install **devDependencies**
+
+There's also a 'shrinkwrap' thing that needs further research.
+
+#### npm Configuration
+
 `npm config` gets and sets configuration information. The `ls` or `list`
 subcommand shows important and/or non-default config info; the `-l` option
 to that includes all defaults. `get` will print a specific config item.
 
-Packages can be installed 'globally' (in the node/npm installation
-directory) or 'locally' (under a `node_modules` directory in the current
-directory). See the section above for nodes on directories used for
-this.
-
-
+#### package.json
