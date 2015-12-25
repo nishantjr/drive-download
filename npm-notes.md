@@ -195,4 +195,12 @@ command will be defaulted to run that.
 
 ### Creating Modules/Packages
 
-Start with section 13 at https://docs.npmjs.com/ to fill in this part.
+The [Node.js module documentation](https://nodejs.org/api/modules.html)
+covers the core information about making modules; npm deals only with
+the metadata, bookkeeping, installation, etc.
+
+To create an npm package, you need a value for `main` in the
+`package.json` file; the default is `index.js`. In that file,
+
+The rest deals with publishing in the npm repository on npmjs.com;
+we'll describe that at a later time.
