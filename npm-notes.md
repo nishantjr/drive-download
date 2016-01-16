@@ -184,7 +184,7 @@ Some of the optional fields:
 * `main`: module ID relative to root of package folder
 * `bin`: map of command names to the `.js` file to be executed for each
 * `description` and `keywords` are used in `npm search`
-* `homepage`, `bugs`, `repository: URLs to project homepage, bug tracker,
+* `homepage`, `bugs`, `repository`: URLs to project homepage, bug tracker,
   repo
 * `config`: configuration information (in this installation's npm config
   database) that persists across upgrades, e.g., `foo:port 8001`
