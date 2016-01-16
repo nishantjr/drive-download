@@ -174,7 +174,7 @@ be used by npm init:
 In the `package.json` there are two required fields:
 
 * `name` is required, is passed to `require()`, becomes part of a URL,
-  'js' or 'node' in name is redundant,
+  a 'js' or 'node' extension on the name is redundant,
   may include a scope, e.g., `@myorg/mypackage`
 * `version` is required, follows standard npm semantic versioning
 
